@@ -1,0 +1,21 @@
+//weighted union of sets
+void union(int u, int v){
+	if(s[u] < s[v]){
+		s[u] = s[u] + s[v];
+		s[v] = u;
+	}else{
+		//opposite top
+		s[v] = s[u] + s[v];
+		s[u] = v;
+	}
+}
+
+int findParent(int u){
+	int x = u;
+	
+	while(s[x] > 0){
+		x = s[x];
+	}
+
+	return x;
+}
